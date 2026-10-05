@@ -7,7 +7,8 @@
 ### 1. Membuat Dokumen HTML
 * **Penjelasan:** Langkah pertama adalah membuat file `lab2_css_dasar.html` dengan struktur dasar HTML5 yang mencakup bagian `<header>`, `<nav>`, dan konten utama yang dilengkapi ID `intro` serta class `.button`.
 * **Screenshot:**
-  ![Tampilan HTML Dasar](img/langkah1.png)
+<img width="1920" height="1080" alt="Screenshot (216)" src="https://github.com/user-attachments/assets/be559fe2-8498-4c24-b8d4-044e7b7be88c" />
+
 
 ---
 
