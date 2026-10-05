@@ -43,3 +43,71 @@
 
 
 ---
+
+# Jawaban Tugas Praktikum 3 - CSS Dasar
+
+
+### 1. Eksperimen Properti CSS
+Eksperimen dilakukan dengan menambah dan mengubah beberapa properti CSS dasar seperti `color`, `background-color`, `font-size`, `margin`, `padding`, dan `border` berdasarkan referensi *CSS Cheat Sheet*.
+
+---
+
+### 2. Perbedaan Pendeklarasian `h1 {...}` dengan `#intro h1 {...}`
+
+* `h1 {...}` *(Element/Tag Selector)* : Mengaplikasikan gaya CSS ke **seluruh** elemen `<h1>` yang ada di dalam dokumen HTML. Memiliki tingkat spesifisitas (*specificity*) yang rendah.
+* `#intro h1 {...}` *(Descendant Selector dengan ID)* : Hanya mengaplikasikan gaya CSS ke elemen `<h1>` yang berada **di dalam** elemen dengan `id="intro"`. Memiliki tingkat spesifisitas yang lebih tinggi karena menggunakan ID.
+
+---
+
+### 3. Hierarki Tampilan Antara Internal CSS, External CSS, dan Inline CSS
+
+Jika sebuah elemen dideklarasikan menggunakan Internal CSS, External CSS, dan Inline CSS sekaligus, maka deklarasi yang akan ditampilkan oleh *browser* adalah **Inline CSS** karena memiliki prioritas (*specificity*) paling tinggi.
+
+**Urutan Prioritas (Cascade):**
+1. **Inline CSS** *(Prioritas Tertinggi)*
+2. **Internal CSS** dan **External CSS** *(Memiliki bobot yang sama, sehingga yang berlaku adalah deklarasi yang ditulis atau dipanggil paling terakhir)*
+
+**Contoh Kode:**
+
+`<head>`
+  `<!-- External CSS -->`
+  `<link rel="stylesheet" href="style.css">`
+  `<!-- Misal isi style.css: p { color: blue; } -->`
+
+  `<!-- Internal CSS -->`
+  `<style>`
+    `p { color: green; }`
+  `</style>`
+`</head>`
+`<body>`
+  `<!-- Inline CSS -->`
+  `<p style="color: red;">Teks ini akan berwarna MERAH.</p>`
+`</body>`
+
+*Penjelasan:* Teks di atas akan ditampilkan berwarna **merah** karena diset secara langsung menggunakan *Inline CSS* (`style="color: red;"`).
+
+---
+
+### 4. Prioritas Antara Selector ID dan Class
+
+Jika pada sebuah elemen HTML terdapat ID dan Class sekaligus (`<p id="paragraf-1" class="text-paragraf">`), maka deklarasi CSS yang akan ditampilkan oleh *browser* adalah **Selector ID (`#paragraf-1`)**. Hal ini disebabkan Selector ID memiliki nilai spesifisitas (*specificity*) yang lebih tinggi daripada Class Selector.
+
+**Contoh Kode:**
+
+**CSS:**
+`/* Selector ID (Spesifisitas Tinggi) */`
+`#paragraf-1 {`
+  `color: blue;`
+  `font-weight: bold;`
+`}`
+
+`/* Selector Class (Spesifisitas Rendah) */`
+`.text-paragraf {`
+  `color: red;`
+  `font-weight: normal;`
+`}`
+
+**HTML:**
+`<p id="paragraf-1" class="text-paragraf">Teks Paragraf Contoh</p>`
+
+*Penjelasan:* Teks di atas akan ditampilkan berwarna **biru** dan cetak **tebal** (*bold*) karena aturan gaya dari `#paragraf-1` (ID) mengalahkan aturan dari `.text-paragraf` (Class).
